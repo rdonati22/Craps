@@ -12,34 +12,27 @@ public class CrapsGame
      *  Returns 1 if player won, -1 if player lost,
      *  0 if player continues rolling.
      */
+
     public int processRoll(int total)
     {
-        int result;
-        if (total==2 || total==3 || total==12){
-            point = 0;
+        int result = 0;
+        if ((total==2 || total==3 || total==12) && point==0){
             result = -1;
         }
-        else if (total==7 || total==11){
-            point = 0;
+        else if ((total==7 || total==11) && point==0){
             result = 1;
         }
-//        else{
-//            point = total;
-//            result = 0;
-//        }
         else{
             point = total;
-            result = 0;
-            if(total==point){
-                point = 0;
-                result = 1;
-            }
-            else if(total==7){
-                point = 0;
-                result = -1;
-            }
-            else{
-                result = 0;
+            //can I prompt a new roll here?
+            while (point!=0) {
+                if (/*newRoll*/total == point) {
+                    result = 1;
+                    point = 0;
+                } else if (/*newRoll*/total == 7) {
+                    result = -1;
+                    point = 0;
+                }
             }
         }
         return result;
