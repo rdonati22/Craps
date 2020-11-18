@@ -16,25 +16,27 @@ public class CrapsGame
     public int processRoll(int total)
     {
         int result = 0;
-        if ((total==2 || total==3 || total==12) && point==0){
-            result = -1;
-        }
-        else if ((total==7 || total==11) && point==0){
-            result = 1;
+        if (point==0) {
+            if (total == 2 || total == 3 || total == 12) {
+                result = -1;
+            }
+            else if (total == 7 || total == 11) {
+                result = 1;
+            }
+            else{
+                point = total;
+            }
         }
         else{
-            point = total;
-            //can I prompt a new roll here?
-            while (point!=0) {
-                if (/*newRoll*/total == point) {
+            if (point==total) {
                     result = 1;
                     point = 0;
-                } else if (/*newRoll*/total == 7) {
+                }
+            else if (total==7) {
                     result = -1;
                     point = 0;
                 }
             }
-        }
         return result;
     }
 
