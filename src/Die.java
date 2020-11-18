@@ -2,8 +2,6 @@ public class Die {
     private int value;
 
     public void roll() {
-        //value = (int) (Math.random() * 7);
-        //value = (int) (Math.random() * ((6-1)+1)+1);
         value = (int) (Math.random() * 6 + 1);
     }
 
